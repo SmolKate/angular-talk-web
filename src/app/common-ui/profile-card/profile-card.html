@@ -1,22 +1,26 @@
-<div class="profile-card">
-    <div class="profile-card__user-info">
-        <img class="profile-card__user-avatar" src="/assets/avatar.jpeg" alt="avatar">
-        <div class="profile-card__user-name">
-            <p class="h6">John Doe</p>
-            <span class="subtitle">Frontend developer</span>
+@if (profile) {
+    <div class="profile-card">
+        <div class="profile-card__user-info">
+            @if (profile.avatarUrl) {
+                <img
+                    class="profile-card__user-avatar"
+                    [src]="profile.avatarUrl | imgUrl"
+                    [alt]="profile.username"
+                >   
+            }
+            <div class="profile-card__user-name">
+                <p class="h6">{{ profile.firstName }} {{ profile.lastName }}</p>
+                <span class="subtitle">{{ profile.username}}</span>
+            </div>
+        </div>
+        <div class="profile-card__description">{{ profile.description }}</div>
+        <div class="profile-card__tags">
+            @for (skill of profile.stack; track skill) {
+                <div class="skill-tag">{{ skill }}</div>
+            }
+        </div>
+        <div class="profile-card__action-btns">
+            <div class="btn">Send message</div>
         </div>
     </div>
-    <div class="profile-card__description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc eget tristique lacinia, 
-        nunc lacus malesuada nisl, ut feugiat nunc nisl in nunc. Nulla facilisis, sem id fringilla tincidunt, 
-        nunc orci aliquet nunc, eu euismod libero nisl in lectus. Nulla facilisis, sem id fringilla tincidunt, 
-    </div>
-    <div class="profile-card__tags">
-        <div class="skill-tag">Angular</div>
-        <div class="skill-tag">React</div>
-        <div class="skill-tag">Vue</div>
-    </div>
-    <div class="profile-card__action-btns">
-        <div class="btn">Send message</div>
-    </div>
-</div>
+}
