@@ -1,1 +1,16 @@
-<p>login-page works!</p>
+<form
+    class="login-form"
+    [formGroup] ="form"
+    (ngSubmit)="onSubmit()"
+>
+    <h1 class="h1">Вход</h1>
+    <label class="input-label">
+        Логин
+        <input formControlName="username" class="input" type="text" placeholder="введите логин"/>
+    </label>
+    <label class="input-label">
+        Пароль
+        <input formControlName="password" class="input" type="text" placeholder="введите пароль"/>
+    </label>
+    <button class="btn btn-shadow" type="submit">Войти</button>
+</form>
