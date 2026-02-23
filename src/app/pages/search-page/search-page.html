@@ -1,8 +1,9 @@
-<main class="main">
-  <div class="content">
-    @for (profile of profiles; track profile.id) {
-      <app-profile-card [profile]="profile"></app-profile-card>
-    }
-  </div>
-  <!-- <div>{{ profiles?.length}}</div> -->
-</main>
+@if (profiles$ | async; as profiles) {
+    <main class="main">
+        <div class="content">
+            @for (profile of profiles; track profile.id) {
+            <app-profile-card [profile]="profile"></app-profile-card>
+            }
+        </div>
+    </main>
+}
