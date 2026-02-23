@@ -1,0 +1,28 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    &__password-icon {
+        position: absolute;
+        right: 16px;
+        bottom: 12px;
+        cursor: pointer;
+    }
+
+    &__password-icon.active {
+        color: var(--primary-color);
+    }
+
+    .input-label {
+        position: relative;
+    }
+}
