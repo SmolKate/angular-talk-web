@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { tap } from 'rxjs';
+import { catchError, tap, throwError } from 'rxjs';
 import { IAuthTokenResponse } from './auth-service.interfaces';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -15,15 +15,43 @@ export class AuthService {
   get isAuth() {
     return !!this.cookieService.get('accessToken')
   }
+
+  get accessToken() {
+    return this.cookieService.get('accessToken')
+  }
+
+  get refreshToken() {
+    return this.cookieService.get('refreshToken')
+  }
+
+  saveTokens(res: IAuthTokenResponse) {
+    this.cookieService.set('accessToken', res['access_token'])
+    this.cookieService.set('refreshToken', res['refresh_token'])
+  }
+
   login(payload: {username: string, password: string}) {
     const formData = new FormData()
     formData.append('username', payload.username)
     formData.append('password', payload.password)
 
     return this.http.post<IAuthTokenResponse>(`${this.baseApiUrl}/token`, formData).pipe(
-      tap(res => {
-        this.cookieService.set('accessToken', res['access_token'])
-        this.cookieService.set('refreshToken', res['refresh_token'])
+      tap(res =>this.saveTokens(res))
+    )
+  }
+
+  logout() {
+    this.cookieService.delete('accessToken')
+    this.cookieService.delete('refreshToken')
+  }
+
+  refreshAuth() {
+    return this.http.post<IAuthTokenResponse>(`${this.baseApiUrl}/refresh`, {
+      refresh_token: this.refreshToken
+    }).pipe(
+      tap(res => this.saveTokens(res)),
+      catchError(err => {
+        this.logout()
+        return throwError(() => err)
       })
     )
   }

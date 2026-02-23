@@ -7,8 +7,13 @@ import { IProfile } from './profile-service.interfaces';
 })
 export class ProfileService {
   http = inject(HttpClient);
-  baseApiUrl = 'https://icherniakov.ru/yt-course/account';  
+  baseApiUrl = 'https://icherniakov.ru/yt-course/account';
+
   getTestAccounts() {
     return this.http.get<IProfile[]>(`${this.baseApiUrl}/test_accounts`)
+  }
+
+  getMe() {
+    return this.http.get<IProfile>(`${this.baseApiUrl}/me`)
   }
 }
