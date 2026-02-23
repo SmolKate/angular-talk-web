@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { IProfile } from '../interfaces/profileService.interfaces';
+import { IProfile } from './profile-service.interfaces';
 
 @Injectable({
   providedIn: 'root',
