@@ -1,0 +1,29 @@
+:host {
+    display: grid;
+    grid-template-columns: 112px 1fr 170px;
+    gap: 24px;
+    align-items: center;
+}
+
+.profile-header {
+    &__avatar {
+        height: 112px;
+        width: 112px;
+        border-radius: 50%;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    &__btn {
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        color: var(--light-color)
+    }
+}

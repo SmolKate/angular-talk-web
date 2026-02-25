@@ -22,8 +22,12 @@ export class ProfileService {
     )
   }
 
-  getSubscribers() {
+  getSubscribers(subscribersAmount = 3) {
     return this.http.get<Pagable<IProfile>>(`${this.baseApiUrl}/subscriptions/`)
-      .pipe(map(res => res.items.slice(0, 3)))
+      .pipe(map(res => res.items.slice(0, subscribersAmount)))
+  }
+
+  getProfile(id: string) {
+    return this.http.get<IProfile>(`${this.baseApiUrl}/${id}`)
   }
 }
