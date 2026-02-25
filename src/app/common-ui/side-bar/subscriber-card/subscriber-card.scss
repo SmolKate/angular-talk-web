@@ -1,0 +1,21 @@
+.subscriber-card {
+    &__avatar {
+        height: 32px;
+        width: 32px;
+        border-radius: 50%;
+    }
+
+    &__arrow {
+        display: grid;
+        grid-template-columns: 32px 1fr 18px;
+        gap: 12px;
+        align-items: center;
+        padding: 8px 0;
+        text-decoration: none;
+        color: var(--light-color);
+
+        &--disabled {
+            pointer-events: none;
+        }
+    }
+}
