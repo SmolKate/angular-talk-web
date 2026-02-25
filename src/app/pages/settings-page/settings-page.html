@@ -1,0 +1,64 @@
+@if (me$ | async; as profile) {
+    <app-profile-header [isEditButton]="false" [profile]="profile"></app-profile-header>
+    <div class="settings__form-wrapper">
+        <form class="settings__edit-form" [formGroup]="form">
+            <div class="two-columns">
+                <label class="form-label">
+                    <span>Имя</span>
+                    <input
+                        formControlName="firstName"
+                        class="form-input"
+                        type="text"
+                        placeholder="введите имя"
+                    >
+                </label>
+                <label class="form-label">
+                    <span>Фамилия</span>
+                    <input
+                        formControlName="lastName"
+                        class="form-input"
+                        type="text"
+                        placeholder="введите фамилию"
+                    >
+                </label>
+            </div>
+            <label class="form-label">
+                <span>Логин</span>
+                <input
+                    formControlName="username"
+                    class="form-input"
+                    type="text"
+                    placeholder="введите логин"
+                >
+            </label>
+            <label class="form-label">
+                <span>О себе</span>
+                <textarea
+                    formControlName="description"
+                    class="form-input form-input--textarea"
+                    placeholder="расскажите о себе"
+                    rows="4"
+                ></textarea>
+            </label>
+            <div class="settings__skills-list">
+                @for (skill of stack$(); track skill) {
+                    <div class="settings__skill-tag">{{ skill }}</div>
+                }
+            </div>
+            <label class="form-label">
+                <span>Навыки</span>
+                <input
+                    formControlName="stack"
+                    class="form-input"
+                    type="text"
+                    placeholder="введите навыки"
+                >
+            </label>
+        </form>
+        <div class="settings__btn-wrapper">
+            <div class="btn">Отменить</div>
+            <div class="btn" (click)="onSave()">Сохранить</div>
+        </div>
+    </div>
+}
+

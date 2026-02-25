@@ -4,6 +4,7 @@ import { SearchPage } from './pages/search-page/search-page';
 import { ProfilePage } from './pages/profile-page/profile-page';
 import { Layout } from './common-ui/layout/layout';
 import { canActivateAuth, canActivateNotAuth } from './data/services/auth/access.guard';
+import { SettingsPage } from './pages/settings-page/settings-page';
 
 export const routes: Routes = [
     {
@@ -12,9 +13,10 @@ export const routes: Routes = [
         children: [
             {path: '', component: SearchPage},
             {path: 'profile/:id', component: ProfilePage},
+            {path: 'settings', component: SettingsPage},
         ],
         canActivate: [canActivateAuth],
-},
+    },
     {
         path: 'login',
         component: LoginPage,

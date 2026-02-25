@@ -16,7 +16,7 @@
             <div class="profile-page__skills-wrapper">
                 <h3 class="h6">Навыки</h3>
                 <div class="profile-page__skills-list">
-                    @for (skill of ['123', '1234']; track skill) {
+                    @for (skill of profile.stack; track skill) {
                         <div class="profile-page__skill-tag">{{ skill }}</div>
                     }
                 </div>

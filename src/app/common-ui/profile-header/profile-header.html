@@ -1,16 +1,20 @@
 @if (profile(); as profile) {
-    <img
-        [src]="profile.avatarUrl ? (profile.avatarUrl | imgUrl) : 'assets/avatar.jpeg'"
-        [alt]="profile.username"
-        class="profile-header__avatar"
-    />
-    <div class="profile-header__info">
-        <h1 class="h4">{{ profile.firstName }} {{ profile.lastName }}</h1>
-        <span class="regular-text">{{ profile.username }}</span>
-    </div>
+    <div class="profile-header {{isEditButton ? '': 'profile-header--without-edit'}}">
+        <img
+            [src]="profile.avatarUrl ? (profile.avatarUrl | imgUrl) : 'assets/avatar.jpeg'"
+            [alt]="profile.username"
+            class="profile-header__avatar"
+        />
+        <div class="profile-header__info">
+            <h1 class="h4">{{ profile.firstName }} {{ profile.lastName }}</h1>
+            <span class="regular-text">{{ profile.username }}</span>
+        </div>
 
-    <a [routerLink]="['/settings']" class="btn profile-header__btn">
-        Редактировать
-        <app-svg icon="gear" [width]="16" [height]="16"></app-svg>
-    </a>
+        @if (isEditButton)  {
+            <a [routerLink]="['/settings']" class="btn profile-header__btn">
+                Редактировать
+                <app-svg icon="gear" [width]="16" [height]="16"></app-svg>
+            </a>
+        }
+    </div>
 }

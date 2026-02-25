@@ -132,6 +132,35 @@ body {
     font-family: 'JetBrains Mono';
 }
 
+.form-label {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.form-input {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    border: none;
+    border-bottom: 1px solid var(--light-color);
+    height: 32px;
+    background: none;
+    color: var(--light-color);
+
+    &:focus-visible {
+        outline: 1px solid var(--primary-color);
+    }
+
+    &--textarea {
+        height: 84px;
+        resize: none;
+    }
+}
+
 .medium-text {
     font-family: 'JetBrains Mono';
     font-weight: 500;

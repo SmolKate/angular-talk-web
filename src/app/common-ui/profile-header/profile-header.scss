@@ -1,11 +1,13 @@
-:host {
+.profile-header {
     display: grid;
     grid-template-columns: 112px 1fr 170px;
     gap: 24px;
     align-items: center;
-}
 
-.profile-header {
+    &--without-edit {
+        grid-template-columns: 112px 1fr;
+    }
+
     &__avatar {
         height: 112px;
         width: 112px;

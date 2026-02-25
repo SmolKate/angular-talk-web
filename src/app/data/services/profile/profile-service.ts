@@ -30,4 +30,8 @@ export class ProfileService {
   getProfile(id: string) {
     return this.http.get<IProfile>(`${this.baseApiUrl}/${id}`)
   }
+
+  updateProfile(profile: Partial<IProfile>) {
+    return this.http.patch<IProfile>(`${this.baseApiUrl}/me`, profile)
+  }
 }

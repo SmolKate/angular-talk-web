@@ -1,0 +1,52 @@
+:host {
+    display: grid;
+    gap: 48px;
+    grid-template-columns: 322px 1fr;
+    height: 100%;
+}
+
+.settings {
+    &__form-wrapper {
+        padding: 32px;
+        border: 1px solid var(--light-color);
+        background: var(--dark-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__edit-form {
+        
+        display: grid;
+        gap: 20px;
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+    }
+
+    &__btn-wrapper {
+        display: flex;
+        gap: 16px;
+        justify-content: end;
+    }
+
+        &__skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        height: fit-content;
+    }
+
+    &__skill-tag {
+        background-color: var(--light-color);
+        border-radius: 4px;
+        padding: 4px 8px;
+        color: var(--dark-color);
+        font-size: 12px;
+        font-family: 'JetBrains Mono SemiBold';
+    }
+
+}
