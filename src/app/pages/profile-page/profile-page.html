@@ -1,5 +1,5 @@
 @if (profile$ | async; as profile) {
-    <app-profile-header [profile]="profile" />
+    <app-profile-header [profile]="profile" [isEditButton]="isEditButton$ | async"/>
     <main class="profile-page__body">
         <app-post-list></app-post-list>
         <div class="profile-page__additional-info">
@@ -24,7 +24,7 @@
             <div class="profile-page__me-wrapper">
                 <h3 class="h6">О себе</h3>
                 <div class="medium-text">
-                    уеуеун угугвгашваш ввгвгвнв внвнвпып ыыгвгвг
+                    {{ profile.description }}
                 </div>
             </div>
         </div>

@@ -1,15 +1,15 @@
 <div class="side-bar">
     <nav>
-        <ul class="side-bar__actions">
+        <div class="side-bar__actions">
             @for (menuItem of menuItems; track menuItem.label) {
-                <li class="side-bar__action-item">
+                <a class="side-bar__action-item" [routerLink]="[menuItem.link]">
                     <app-svg [icon]="menuItem.icon"></app-svg>
                     <button>
                         {{menuItem.label}}
                     </button>
-                </li>
+                </a>
             }
-        </ul>
+        </div>
     </nav>
 
     <p class="medium-text mb-20">Подписчики</p>

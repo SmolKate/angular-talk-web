@@ -22,14 +22,17 @@ export class SideBar {
     {
       icon: 'home',
       label: 'Моя страница',
+      link: '/profile/me'
     },
     {
       icon: 'chat',
       label: 'Чаты',
+      link: '/chats'
     },
     {
       icon: 'search',
       label: 'Поиск',
+      link: '/search'
     },
   ]
 

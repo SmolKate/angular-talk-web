@@ -11,7 +11,7 @@ import { RouterLink } from "@angular/router";
   styleUrl: './profile-header.scss',
 })
 export class ProfileHeader {
-  @Input() isEditButton? = true
+  @Input() isEditButton: boolean | null | undefined = true
 
   profile = input<IProfile>()
 

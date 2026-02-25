@@ -19,6 +19,10 @@ export class ProfilePage {
   route = inject(ActivatedRoute)
   me$ = toObservable(this.profileService.me)
   subscribers$ = this.profileService.getSubscribers(5)
+  
+  isEditButton$ = this.route.params.pipe(
+    switchMap(async ({ id }) => id === 'me')
+  )
 
   profile$ = this.route.params.pipe(
     switchMap(({ id }) => {
