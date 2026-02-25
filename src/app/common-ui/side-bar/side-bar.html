@@ -1,1 +1,32 @@
-<p>side-bar works!</p>
+<div class="side-bar">
+    <nav>
+        <ul class="side-bar__actions">
+            @for (menuItem of menuItems; track menuItem.label) {
+                <li class="side-bar__action-item">
+                    <app-svg [icon]="menuItem.icon"></app-svg>
+                    <button>
+                        {{menuItem.label}}
+                    </button>
+                </li>
+            }
+        </ul>
+    </nav>
+
+    <p class="medium-text mb-20">Подписчики</p>
+    @for (profile of subscribers$ | async; track profile.id) {
+        <app-subscriber-card [profile]="profile"></app-subscriber-card>
+    }
+
+    <a [routerLink]="['/subscribers']" class="mt-20 side-bar__subscribers-btn">
+        <p class="medium-text">
+            Все подписчики
+        </p>
+        <app-svg icon="arrow" [width]="18" [height]="18" ></app-svg>
+    </a>
+    
+    @if (meProfile(); as meProfile) {
+        <div class="side-bar__footer">
+            <app-subscriber-card [profile]="meProfile" redirectLink="/settings"></app-subscriber-card>
+        </div>
+    }
+</div>

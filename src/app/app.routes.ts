@@ -13,11 +13,11 @@ export const routes: Routes = [
             {path: '', component: SearchPage},
             {path: 'profile', component: ProfilePage},
         ],
-        canActivate: [canActivateAuth],
+        // canActivate: [canActivateAuth],
 },
     {
         path: 'login',
         component: LoginPage,
-        canActivate: [canActivateNotAuth],
+        // canActivate: [canActivateNotAuth],
     },
 ];

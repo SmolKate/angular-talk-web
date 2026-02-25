@@ -1,0 +1,16 @@
+@if (profile) {
+    <a
+        [routerLink]="[redirectLink]"
+        class="subscriber-card__arrow {{redirectLink ? '': 'subscriber-card__arrow--disabled'}}"
+    >
+        <img
+            [src]="profile.avatarUrl ? (profile.avatarUrl | imgUrl) : 'assets/avatar.jpeg'"
+            [alt]="profile.username"
+            class="subscriber-card__avatar"
+        />
+        <strong class="subtitle">{{ profile.firstName }} {{ profile.lastName }}</strong>
+        @if (redirectLink) {
+            <app-svg icon="arrow" [width]="18" [height]="18" ></app-svg>
+        }
+    </a>
+}

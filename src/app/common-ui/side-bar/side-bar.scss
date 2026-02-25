@@ -1,0 +1,64 @@
+.side-bar {
+    padding: 16px;
+    display: flex;
+    height: 100%;
+    box-sizing: border-box;
+    flex-direction: column;
+
+    &__actions {
+        display: grid;
+        gap: 16px;
+        list-style: none;
+        padding: 0;
+    }
+
+    &__action-item {
+        padding: 8px 12px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        &:hover, &:focus-visible {
+            background: var(--light-hover-color);
+            border-radius: 4px;
+            color: var(--primary-color);
+
+            button {
+                color: var(--primary-color);
+            }
+        }
+
+        button {
+            color: var(--light-color);
+            font-family: 'JetBrains Mono';
+            width: 100%;
+            text-align: start;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 24px;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+    }
+
+    &__subscribers-btn {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        color: var(--light-color);
+        text-decoration: none;
+        padding: 8px 12px;
+        background: var(--primary-color);
+        border-radius: 4px;
+        width: fit-content
+    }
+
+    &__footer {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+}
